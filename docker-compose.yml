@@ -7,7 +7,7 @@ services:
       - 3001:3000
     depends_on:
       db:
-        condition: service_start
+        condition: service_started
 
   db:
     image: mysql:9.7.0
@@ -18,7 +18,7 @@ services:
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
       - MYSQL_DATABASE=${DB_NAME}
     healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-u", "root", "-p${DB_PASS}"]
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-u", "root", "-p${DB_PASSWORD}"]
       interval: 5s
       timeout: 5s
       retries: 10
