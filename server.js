@@ -11,6 +11,7 @@ app.use(
   cors({
     origin: "https://form-healing.rdevelabs.com/",
     methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type", "x-rdl"],
   }),
 );
 
