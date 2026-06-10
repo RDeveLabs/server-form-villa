@@ -7,13 +7,14 @@ const app = express();
 const uploads = multer();
 
 app.use(
-  express.static("."),
   cors({
-    origin: "https://form-healing.rdevelabs.com/",
+    origin: "https://form-healing.rdevelabs.com",
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type", "x-rdl"],
   }),
 );
+
+app.use(express.static("."));
 
 app.get("/", (req, res) => {
   res.send("index.html");
@@ -47,7 +48,6 @@ app.post("/post", uploads.single(), async (req, res) => {
     );
 
     console.log(results);
-    list - pendaftaran - villa - production.up.railway.app;
     res.status(200).send("ok");
   } catch (err) {
     if (err.code === "ER_DUP_ENTRY") return res.status(500).send("duplikat");
