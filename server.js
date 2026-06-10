@@ -9,7 +9,7 @@ const uploads = multer();
 app.use(
   express.static("."),
   cors({
-    origin: ["https://form.rdevelabs.com", "https://rekap.rdevelabs.com"],
+    origin: "https://form-healing.rdevelabs.com/",
     methods: ["GET", "POST"],
   }),
 );
